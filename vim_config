@@ -1,0 +1,76 @@
+" Iniciar o vim-plug
+call plug#begin('~/.vim/plugged')
+
+" Adicionar plugins aqui
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Finalizar a configuração de plugins
+call plug#end()
+
+" Configuração básica do coc.nvim
+" Use <Tab> e <S-Tab> para navegar pelas opções de autocomplete
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Use <cr> para confirmar a seleção do autocomplete
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<CR>"
+
+" Usar [c e ]c para navegar entre os erros
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+" Formatar o código
+nmap <silent> <leader>f  <Plug>(coc-format)
+
+" Ativar snippets
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Definir a tecla líder
+let mapleader="\<Space>"
+
+" Instalar linguagens suportadas pelo coc.nvim
+" Execute :CocInstall coc-json coc-tsserver coc-html coc-css
+
+" Outras configurações do Vim
+" Ativar números de linha
+set number
+
+" Ativar realce de sintaxe
+syntax on
+
+" Mostrar os numeros index de baixo e de cima
+set relativenumber
+
+" Definir indentação automática
+set autoindent
+set smartindent
+
+
+" Configurações de tabulação
+set tabstop=4       " Um caractere de tab equivale a 4 espaços
+set shiftwidth=4    " Indentação usa 4 espaços
+set noexpandtab     " Não converter tabs em espaços
+
+" Mostrar o cursor atual na linha
+set cursorline
+
+" Habilitar a busca incremental
+set incsearch
+
+" Ignorar case na busca
+set ignorecase
+set smartcase
+
+" Ativar a barra de status sempre
+set laststatus=2
+
+" Definir histórico de comandos
+set history=1000
+
+" Mapear 'jj' para sair do modo de inserção
+inoremap jj <Esc>
+
+" Facilitar a gravação e saída
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+
