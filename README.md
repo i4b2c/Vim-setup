@@ -8,7 +8,7 @@
 
 2. **Configurar o `.vimrc`:**
 
-   Cole o código acima no seu arquivo `.vimrc`.
+   Cole o código do arquivo vim_config no seu arquivo `.vimrc`.
 
 3. **Instalar os plugins:**
 
