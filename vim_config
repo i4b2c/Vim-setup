@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
 
 " Adicionar plugins aqui
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'preservim/nerdtree'  " Plugin NERDTree
 
 " Finalizar a configuração de plugins
 call plug#end()
@@ -45,7 +46,6 @@ set relativenumber
 set autoindent
 set smartindent
 
-
 " Configurações de tabulação
 set tabstop=4       " Um caractere de tab equivale a 4 espaços
 set shiftwidth=4    " Indentação usa 4 espaços
@@ -74,3 +74,12 @@ inoremap jj <Esc>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 
+" Configurações do NERDTree
+" Mapear a tecla líder para abrir/fechar o NERDTree
+nnoremap <leader>n :NERDTreeToggle<CR>
+
+" Abrir o NERDTree automaticamente quando o Vim é iniciado sem argumentos
+autocmd vimenter * if !argc() | NERDTree | endif
+
+" Se o NERDTree é o único buffer aberto, sair do Vim ao fechá-lo
+autocmd bufenter * if (winnr('$') == 1 && &filetype == 'nerdtree') | q | endif
